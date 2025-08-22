@@ -48,16 +48,16 @@ function App() {
               <td>質問</td> <td>あなたの解答</td> <td>合否</td>
             </tr>
           </thead>
+          <tbody>
+            {answers.map((item)=>(
+              <tr className={item.correct ? 'correct' :'wrong'}>
+                <td>{item.question}</td>
+                <td>{item.answer}</td>
+                <td>{item.correct ? '〇' : '✕' }</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
-        <tbody>
-          {answers.map((item)=>(
-            <tr className={item.correct ? 'correct' :'wrong'}>
-              <td>{item.question}</td>
-              <td>{item.answer}</td>
-              <td>{item.correct ? '〇' : '✕' }</td>
-            </tr>
-          ))}
-        </tbody>
       </div>
     ) : (
       <div className='question-section'>
@@ -136,10 +136,6 @@ const quizData = [
     options:["ウルトラマンゼロ","ウルトラマンレオ","ウルトラセブン","ウルトラマン",],
     correct:"ウルトラマン",
   },
-  {
-    question:"ウルトラの星、M７８星雲は実在するか",
-    options:["〇","✕"],
-    correct:"〇<実はオリオン座の真ん中あたりにある。>",
-  },
+
 ];
 export default App;
